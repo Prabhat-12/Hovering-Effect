@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #111;
+}
+
+.container{
+    position: relative;
+    width: 600px;
+    height: 500px;
+    background: rgb(10, 10, 10);
+    /* border: 5px solid rgb(199, 0, 0); */
+}
+.container .clip{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+.container .clip.clip1{
+  background: url(/Img/farmland.jpg) center/cover;
+  border: 8px solid  rgb(250, 249, 248);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 15% 100%, 40% 51%, 15% 0);
+}
+.container .clip.clip2{
+  background: url(/Img/mountain.jpg)center/cover;
+  border: 8px solid  rgb(250, 249, 248);
+  clip-path: polygon(0 0, 0 50%, 0 100%, 15% 100%, 40% 51%, 15% 0);
+  transform:translateX(-10px)
+}
+.container .clip.clip3{
+  background: url(/Img/sunflower.jpg)center/cover;
+  border: 8px solid  rgb(250, 249, 248);
+  clip-path: polygon(100% 0, 75% 0, 100% 50%);
+  transform:translateX(10px)
+}
+.container .clip.clip4{
+  clip-path: polygon(100% 100%, 75% 100%, 100% 50%);
+background: url(/Img/volcano.jpg) center/cover;
+border: 8px solid  rgb(250, 249, 248);
+transform:translateX(10px);
+
+}
+.container:hover .clip{
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  transition: 2s;
+}
+.container .clip:hover{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+}
+.container .clip .content{
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 70%;
+  padding: 20px;
+  opacity: 0;
+  background: #fff;
+  transition:1.5s ease-in-out;
+}
+.container .clip:hover .content {
+  bottom: 0;
+  opacity: 1;
+}
